@@ -22,13 +22,22 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-jY-6K2">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3NC-gY-vjB" firstAttribute="bottom" secondItem="Lzn-jY-6K2" secondAttribute="bottom" id="0jN-2t-fZc"/>
                             <constraint firstItem="3NC-gY-vjB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FTw-Ja-hVQ"/>
+                            <constraint firstItem="Lzn-jY-6K2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IZa-GX-cQ3"/>
+                            <constraint firstItem="Lzn-jY-6K2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JwR-Mf-obc"/>
                             <constraint firstItem="3NC-gY-vjB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VIa-IB-1JP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3NC-gY-vjB" secondAttribute="trailing" id="b5V-lT-BhJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3NC-gY-vjB" secondAttribute="bottom" id="dzp-S0-NcG"/>
+                            <constraint firstItem="Lzn-jY-6K2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mZW-65-EgM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
