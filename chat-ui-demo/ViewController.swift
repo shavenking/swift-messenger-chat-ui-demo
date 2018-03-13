@@ -9,17 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let messages = ["jaowiefjaoiw jfeawoie jawioj", "aiowef", "aoiwejaowiefjoaiwje foaiwej fioawefj awioefjawioe", "qowiejqwioej\nqowiejqiowejq\nqowejqwioe"]
 
+    @IBOutlet weak var messageTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        messageTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "qweq")
+        
+        messageTableView.dataSource = self
+        messageTableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "qweq") as! TableViewCell
+        
+        cell.messageLabel.text = messages[indexPath.row]
+        
+        return cell
+    }
+}
