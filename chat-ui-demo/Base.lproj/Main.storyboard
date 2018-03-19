@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3NC-gY-vjB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-jY-6K2">
@@ -36,7 +36,7 @@
                         <constraints>
                             <constraint firstItem="3NC-gY-vjB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1Q6-zC-Uiq"/>
                             <constraint firstItem="Lzn-jY-6K2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9Qe-Kh-3wq"/>
-                            <constraint firstItem="Lzn-jY-6K2" firstAttribute="top" secondItem="3NC-gY-vjB" secondAttribute="bottom" id="J8t-ca-xHn"/>
+                            <constraint firstItem="Lzn-jY-6K2" firstAttribute="top" secondItem="3NC-gY-vjB" secondAttribute="bottom" constant="2" id="J8t-ca-xHn"/>
                             <constraint firstItem="3NC-gY-vjB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M2o-ew-alP"/>
                             <constraint firstItem="3NC-gY-vjB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NIh-8b-zvU"/>
                             <constraint firstItem="Lzn-jY-6K2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Oc6-Pc-Fko"/>
@@ -46,6 +46,7 @@
                     </view>
                     <connections>
                         <outlet property="messageTableView" destination="3NC-gY-vjB" id="hez-4g-scI"/>
+                        <outlet property="messageTextFieldBottomLayoutConstraint" destination="Oc6-Pc-Fko" id="QG4-Bs-HZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

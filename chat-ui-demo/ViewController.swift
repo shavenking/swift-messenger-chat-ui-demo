@@ -34,6 +34,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var messageTableView: UITableView!
     
+    @IBOutlet weak var messageTextFieldBottomLayoutConstraint: NSLayoutConstraint!
+
+    private var didScrollToEnd = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,11 +54,24 @@ class ViewController: UIViewController {
 
 extension ViewController {
     @objc func keyboardWillShow(notification: Notification) {
-        dump(notification.userInfo)
+        if let keyboardBounds = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
+            messageTextFieldBottomLayoutConstraint.constant = -keyboardBounds.height
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { _ in
+                if self.didScrollToEnd {
+                    self.messageTableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .top, animated: true)
+                }
+            })
+        }
     }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        didScrollToEnd = messageTableView.contentOffset.y >= (messageTableView.contentSize.height - messageTableView.frame.size.height)
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ceil(messages[indexPath.row].text.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body)], context: nil).size.height) + 8 * 2
     }
